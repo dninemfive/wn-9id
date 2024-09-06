@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Any, Self
 from time import time_ns
 
 def _fmt(start: int, end: int) -> str:
@@ -41,3 +41,12 @@ def try_nest(parent: Message | None, msg: str, *args, **kwargs) -> Message:
         return Message(msg, *args, **kwargs)
     else:
         return parent.nest(msg, *args, **kwargs)
+    
+def entry_message(msg_str: str):
+    """
+    Given a class which defines __enter__(), __exit__(), and root_msg,
+    return a class where:
+        __enter__() creates self.entry_msg: Message = self.root_msg.nest(msg_str) and then calls self.entry_msg.__enter__()
+        __exit__() calls self.entry_msg.__exit__()
+    """
+    pass
