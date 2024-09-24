@@ -17,6 +17,7 @@ from metadata.unit import UnitMetadata
 from ndf_parse import Mod
 from ndf_parse.model import List
 from ndf_parse.model.abc import CellValue
+from script.lib.unit_def import UnitDef
 from utils.ndf import ensure
 from utils.ndf.files import add_image, add_image_literal
 from utils.types.cache import Cache
@@ -95,6 +96,10 @@ class ModCreationContext(object):
                            showroom_src,
                            self.try_add_button_texture(button_texture_src_path, metadata.unit_metadata),
                            self.root_msg)
+    
+    def create_unit_from_def(self: Self, unit_def: UnitDef) -> str:
+        with unit_def._unit_creator as creator:
+            unit_def.adjust(creator)
     
     def add_division_emblem(self: Self, msg: Message | None, image_path: str, division: DivisionMetadata) -> str:
         with try_nest(msg, f"Adding division emblem from image at {image_path}") as _:
