@@ -1,8 +1,8 @@
-from context.mod_creation_context import ModCreationContext
-from metadata.unit_rules import UnitRules
+from lib.context.mod_creation_context import ModCreationContext
+from lib.metadata.unit_rules import UnitRules
 from ndf_parse.model import Object
 from units._utils import METRE
-from utils.ndf import ensure
+from lib.utils.ndf import ensure
 
 FLIGHT_ALTITUDE = 9150 / 3.2 * METRE
 FLIGHT_SPEED = 480

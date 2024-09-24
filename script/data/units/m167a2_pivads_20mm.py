@@ -1,10 +1,10 @@
-from context.mod_creation_context import ModCreationContext
-from context.module_context import ModuleContext
-from creators.unit import UNIT_UI
-from metadata.unit import UnitMetadata
-from metadata.unit_rules import UnitRules
+from lib.context.mod_creation_context import ModCreationContext
+from lib.context.module_context import ModuleContext
+from lib.creators.unit import UNIT_UI
+from lib.metadata.unit import UnitMetadata
+from lib.metadata.unit_rules import UnitRules
 from ndf_parse.model import List, ListRow
-from utils.ndf.ensure import _list as qlist
+from lib.utils.ndf.ensure import _list as qlist
 
 
 def create(ctx: ModCreationContext) -> UnitRules | None:

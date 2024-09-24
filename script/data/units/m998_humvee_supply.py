@@ -1,10 +1,10 @@
-from constants.ndf_paths import UNITE_DESCRIPTOR
-from context.mod_creation_context import ModCreationContext
-from context.module_context import ModuleContext
-from metadata.division_unit_registry import UnitRules
+from lib.constants.ndf_paths import UNITE_DESCRIPTOR
+from lib.context.mod_creation_context import ModCreationContext
+from lib.context.module_context import ModuleContext
+from lib.metadata.division_unit_registry import UnitRules
 from ndf_parse.model import List, Object
 
-from creators.unit import UnitCreator
+from lib.creators.unit import UnitCreator
 
 MODULES_DESCRIPTORS = "ModulesDescriptors"
 

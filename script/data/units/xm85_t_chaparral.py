@@ -1,7 +1,7 @@
-from context.mod_creation_context import ModCreationContext
-from metadata.unit_rules import UnitRules
-import utils.ndf.edit as edit
-import utils.ndf.unit_module as module
+from lib.context.mod_creation_context import ModCreationContext
+from lib.metadata.unit_rules import UnitRules
+import lib.utils.ndf.edit as edit
+import lib.utils.ndf.unit_module as module
 
 def create(ctx: ModCreationContext) -> UnitRules | None:
     # MIM-72A T-CHAPARRAL

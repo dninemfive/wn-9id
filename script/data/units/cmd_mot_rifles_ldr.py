@@ -1,9 +1,9 @@
-from context.mod_creation_context import ModCreationContext
-from context.module_context import ModuleContext
-from creators.unit import UNIT_UI
-from metadata.division_unit_registry import UnitRules
+from lib.context.mod_creation_context import ModCreationContext
+from lib.context.module_context import ModuleContext
+from lib.creators.unit import UNIT_UI
+from lib.metadata.division_unit_registry import UnitRules
 from ndf_parse.model import List
-import utils.ndf.edit as edit
+import lib.utils.ndf.edit as edit
 from units._utils import edit_standard_squad
 
 

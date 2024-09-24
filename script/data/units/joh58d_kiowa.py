@@ -1,12 +1,12 @@
-import utils.ndf.edit as edit
-import utils.ndf.ensure as ensure
-from constants.ndf_paths import AMMUNITION_MISSILES, MISSILE_CARRIAGE, WEAPON_DESCRIPTOR
-from context.mod_creation_context import ModCreationContext
-from context.module_context import ModuleContext
-from creators.unit import UNIT_UI
-from creators.weapon import WeaponCreator
-from metadata.division_unit_registry import UnitRules
-from metadata.unit import UnitMetadata
+import lib.utils.ndf.edit as edit
+import lib.utils.ndf.ensure as ensure
+from lib.constants.ndf_paths import AMMUNITION_MISSILES, MISSILE_CARRIAGE, WEAPON_DESCRIPTOR
+from lib.context.mod_creation_context import ModCreationContext
+from lib.context.module_context import ModuleContext
+from lib.creators.unit import UNIT_UI
+from lib.creators.weapon import WeaponCreator
+from lib.metadata.division_unit_registry import UnitRules
+from lib.metadata.unit import UnitMetadata
 from ndf_parse.model import List, ListRow, Object
 
 

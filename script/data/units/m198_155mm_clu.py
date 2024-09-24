@@ -1,9 +1,9 @@
-from context.mod_creation_context import ModCreationContext
-from context.module_context import ModuleContext
-from metadata.division_unit_registry import UnitRules
-from metadata.unit import UnitMetadata
-import utils.ndf.ensure as ensure
-import utils.ndf.edit as edit
+from lib.context.mod_creation_context import ModCreationContext
+from lib.context.module_context import ModuleContext
+from lib.metadata.division_unit_registry import UnitRules
+from lib.metadata.unit import UnitMetadata
+import lib.utils.ndf.ensure as ensure
+import lib.utils.ndf.edit as edit
 
 
 def create(ctx: ModCreationContext) -> UnitRules | None:

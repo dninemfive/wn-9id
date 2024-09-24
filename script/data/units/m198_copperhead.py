@@ -1,9 +1,9 @@
-import utils.ndf.edit as edit
-import utils.ndf.ensure as ensure
-from context.mod_creation_context import ModCreationContext
-from context.module_context import ModuleContext
-from metadata.division_unit_registry import UnitRules
-from metadata.unit import UnitMetadata
+import lib.utils.ndf.edit as edit
+import lib.utils.ndf.ensure as ensure
+from lib.context.mod_creation_context import ModCreationContext
+from lib.context.module_context import ModuleContext
+from lib.metadata.division_unit_registry import UnitRules
+from lib.metadata.unit import UnitMetadata
 from units._utils import METRE
 
 

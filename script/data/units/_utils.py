@@ -1,8 +1,8 @@
 from ndf_parse.model import Map, MapRow, MemberRow, Object
 
-import utils.ndf.ensure as ensure
-import utils.ndf.edit as edit
-from creators.unit import UnitCreator
+import lib.utils.ndf.ensure as ensure
+import lib.utils.ndf.edit as edit
+from lib.creators.unit import UnitCreator
 
 # from CommonData\Gameplay\Constantes\InitialisationGameDistanceUnits.ndf
 LBU_TO_GRU_CONVERSION_FACTOR = 2.92198967
