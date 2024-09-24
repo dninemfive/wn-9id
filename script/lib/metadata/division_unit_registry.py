@@ -1,5 +1,6 @@
 from typing import Self
 
+from multipledispatch import dispatch
 import utils.ndf.ensure as ensure
 from constants.ndf_paths import DECK_SERIALIZER, DIVISION_RULES
 # from context.mod_creation_context import ModCreationContext
@@ -35,6 +36,7 @@ class DivisionUnitRegistry(object):
         for k, v in self.unit_ids.items:
             unit_ids.add(k=k, v=str(v))
 
+    @dispatch(Self, UnitRules, str | list[str] | None)
     def register(self: Self, rules: UnitRules, override_transports: str | list[str] | None = None):
         override_transports = ensure_unit_path_list(override_transports)
         if override_transports is not None:
@@ -44,7 +46,8 @@ class DivisionUnitRegistry(object):
             self.units.append(rules)
             self.unit_ids.register(rules.unit.descriptor_path)
 
-    def register_vanilla(self: Self, unit: str | UnitMetadata, packs: int, override_transports: str | list[str] | None = None):
+    @dispatch(Self, str | UnitMetadata, int, str | List[str] | None)
+    def register(self: Self, unit: str | UnitMetadata, packs: int, override_transports: str | list[str] | None = None):
         if isinstance(unit, str):
             unit = UnitMetadata(unit)
         override_transports = ensure_unit_path_list(override_transports)
