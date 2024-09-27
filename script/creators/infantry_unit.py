@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Self, TYPE_CHECKING
 
 import constants.ndf_paths as ndf_paths
 import utils.ndf.edit as edit
@@ -17,29 +17,35 @@ from ndf_parse.model import (List, ListRow, Map, MapRow, MemberRow, Object,
 from utils.ndf import ensure
 from utils.ndf.decorators import ndf_path
 from utils.types.message import Message
+if TYPE_CHECKING:
+    from context.mod_creation_context import ModCreationContext
+    from metadata.new_unit import NewUnitMetadata
 
 
 def _mesh_alternative(index: int) -> str:
     return f"'MeshAlternative_{index}'"
 
-class Squad(object):
+class InfantryUnitCreator(UnitCreator):
     def __init__(self: Self,
-                 guids: GuidManager,
-                 creator: UnitCreator,
-                 country: str,
-                 copy_of: str | UnitMetadata | None,
+                 ctx: ModCreationContext,
+                 new_unit_metadata: NewUnitMetadata,
+                 copy_of: str | UnitMetadata,
+                 showroom_src: str | UnitMetadata | None = None,
+                 button_texture_key: str | None = None,
+                 msg: Message | None = None,
                  *weapons: tuple[InfantryWeapon, int]):
-        self.guids = guids
-        self.metadata = creator.new
-        self.country = country
-        self.copy_of = UnitMetadata(copy_of if copy_of is not None else creator.src.name)
+        super().__init__(ctx, new_unit_metadata, copy_of, showroom_src, button_texture_key, msg)
         self.weapon_set = InfantryWeaponSet(*weapons)
-        self._keys = _SquadKeys(self.metadata)
+        self._keys = _SquadKeys(self.new_unit)
         self._cached_weapon_assignment: dict[int, list[int]] | None = None
 
-    @staticmethod
-    def copy_parent(guids: GuidManager, creator: UnitCreator, country: str, *weapons: tuple[InfantryWeapon, int]):
-        return Squad(guids, creator, country, None, *weapons)
+    # enter/exit
+    def __enter__(self: Self) -> Self:
+        return UnitCreator.__enter__(self)
+    
+    def __exit__(self: Self, exc_type, exc_value, traceback):
+        self.apply()
+        self.msg.__exit__(exc_type, exc_value, traceback)
 
     # properties
 
@@ -53,6 +59,10 @@ class Squad(object):
             self._cached_weapon_assignment = self.weapon_set.assignment
         return ensure._object('TInfantrySquadWeaponAssignmentModuleDescriptor',
                                InitialSoldiersToTurretIndexMap=self._cached_weapon_assignment)
+    
+    @property
+    def country(self: Self) -> str:
+        return self.new_unit.metadata.country
     
     # internal methods
 
@@ -108,15 +118,15 @@ class Squad(object):
 
     @ndf_path(ndf_paths.GENERATED_DEPICTION_INFANTRY)
     def edit_generated_depiction_infantry(self: Self, ndf: List) -> None:
-        ndf.add(ListRow(self._gfx(), namespace=f'Gfx_{self.metadata.name}'))
+        ndf.add(ListRow(self._gfx(), namespace=f'Gfx_{self.new_unit.name}'))
         ndf.add(ListRow(self._all_weapon_alternatives(), namespace=self._keys._all_weapon_alternatives))
         ndf.add(ListRow(self._all_weapon_sub_depiction(), namespace=self._keys._all_weapon_sub_depiction))
         ndf.add(ListRow(self._all_weapon_sub_depiction_backpack(), namespace=self._keys._all_weapon_sub_depiction_backpack))
-        tactic_depiction: List = ndf.by_name(ensure.prefix_and_suffix(self.copy_of.name, 'TacticDepiction_', '_Alternatives')).value.copy()        
+        tactic_depiction: List = ndf.by_name(ensure.prefix_and_suffix(self.src_unit.name, 'TacticDepiction_', '_Alternatives')).value.copy()        
         ndf.add(ListRow(tactic_depiction, namespace=self._keys._tactic_depiction_alternatives))
         selector_tactic: TemplateInfantrySelectorTactic\
             = TemplateInfantrySelectorTactic.from_tuple(ndf.by_name('TransportedInfantryAlternativesCount').value\
-                                                           .by_key(self.copy_of.quoted_name).value)
+                                                           .by_key(self.src_unit.quoted_name).value)
         ndf.add(ListRow(self._tactic_depiction_soldier(selector_tactic), namespace=self._keys._tactic_depiction_soldier))
         ndf.add(ListRow(self._tactic_depiction_ghost(selector_tactic), namespace=self._keys._tactic_depiction_ghost))
         ndf.by_name('InfantryMimetic').value.add(MapRow(key=self._keys._unit, value=self._keys._tactic_depiction_soldier))
@@ -125,6 +135,7 @@ class Squad(object):
                                                                                     selector_tactic.tuple))
         
     def apply(self: Self, ndf: dict[str, List], msg: Message | None) -> None:
+        UnitCreator.apply(self)
         self.edit_generated_depiction_infantry(ndf, msg)
         self.edit_showroom_units(ndf, msg)
         self.edit_weapon_descriptors(ndf, msg)
@@ -135,7 +146,7 @@ class Squad(object):
                               InfantryMimeticName=self._keys._unit,
                               WeaponUnitFXKey=self._keys._unit,
                               MimeticDescriptor=ensure._object('Descriptor_Unit_MimeticUnit', 
-                                                               DescriptorId=self.guids.generate(guid_key),
+                                                               DescriptorId=self.ctx.guids.generate(guid_key),
                                                                MimeticName=self._keys._unit),
                               BoundingBoxSize=f'{self.soldier_count + 2} * Metre')
 
@@ -171,4 +182,4 @@ class Squad(object):
         unit.edit_module_members('TTacticalLabelModuleDescriptor', NbSoldiers=self.soldier_count)
         unit.edit_module_members('WeaponManager', by_name=True, Default=self.metadata.weapon_descriptor_path)
         # this should edit showroomequivalence when the unit is saved
-        unit.showroom_src = self.metadata
+        unit.showroom_src_unit = self.metadata

@@ -18,7 +18,7 @@ def create(ctx: ModCreationContext) -> UnitRules | None:
             edit_weapons(weapons)
         joh58c.get_module('MissileCarriage', by_name=True).by_member('Connoisseur').value = generate_missile_carriages(ctx.ndf[MISSILE_CARRIAGE])
         with ModuleContext(joh58c.get_other_unit('OH58_CS_US'), 'TUnitUIModuleDescriptor') as oh58cs_ui_module:
-            oh58cs_ui_module.edit_members(UpgradeFromUnit=joh58c.new.descriptor_name)
+            oh58cs_ui_module.edit_members(UpgradeFromUnit=joh58c.new_unit.descriptor_name)
         return UnitRules(joh58c, 1, [0, 4, 3, 0])
     
 def generate_ammo_descriptor(ctx: ModCreationContext) -> str:

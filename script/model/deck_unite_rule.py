@@ -55,7 +55,7 @@ class TDeckUniteRule(object):
              transports: list[str] | None = None,
              force_awt: bool | None = None) -> Self:
         if isinstance(metadata, UnitCreator):
-            metadata = metadata.new
+            metadata = metadata.new_unit
         num_per_pack = max(num_per_xp)
         xp_multipliers = [x / num_per_pack for x in num_per_xp]
         available_without_transport = force_awt if force_awt is not None else (transports is None)

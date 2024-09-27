@@ -30,7 +30,7 @@ class ShowroomUnitCreator(object):
         self.localized_name = new_unit_metadata.localized_name
         self.name_token = new_unit_metadata.name_token
         self.guid = new_unit_metadata.guid
-        self.new: UnitMetadata = new_unit_metadata.unit_metadata
+        self.new: UnitMetadata = new_unit_metadata.metadata
         self.src = UnitMetadata(copy_of)
         self.showroom_src = UnitMetadata(showroom_src) if showroom_src is not None else self.src
         self.button_texture_key = button_texture_key

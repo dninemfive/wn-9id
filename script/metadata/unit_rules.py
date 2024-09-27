@@ -14,7 +14,7 @@ class UnitRules(object):
                  transports: list[str] | None = None,
                  force_awt: bool | None = None):
         if isinstance(unit, UnitCreator):
-            unit = unit.new
+            unit = unit.new_unit
         self.unit: UnitMetadata = unit
         self.num_packs = num_packs
         self.rule: TDeckUniteRule = TDeckUniteRule.make(unit, units_per_pack, transports, force_awt)

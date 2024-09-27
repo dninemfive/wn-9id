@@ -7,6 +7,7 @@ from utils.localization import delocalize
 @dataclass
 class UnitMetadata(object):
     name: str
+    country: str
 
     @property
     def quoted_name(self: Self) -> str:
@@ -58,4 +59,17 @@ class UnitMetadata(object):
     
     @staticmethod
     def from_localized_name(prefix: str, localized_name: str, country: str) -> Self:
-        return UnitMetadata(f"{prefix}_{delocalize(localized_name)}_{country}")
+        return UnitMetadata(f"{prefix}_{delocalize(localized_name)}", country)
+    
+    @staticmethod
+    def resolve(unit_reference: str | Self | None, backup_reference: str | Self | None = None) -> Self:
+        if isinstance(unit_reference, UnitMetadata):
+            return unit_reference
+        if isinstance(unit_reference, str):
+            split = unit_reference.split('_')
+            return UnitMetadata('_'.join(split[:-1]), split[-1])
+        if unit_reference is None:
+            if backup_reference is None:
+                raise ValueError(f'Backup reference cannot be None if unit_reference is None!')
+            return UnitMetadata.resolve(backup_reference)
+        
