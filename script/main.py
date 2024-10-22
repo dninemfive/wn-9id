@@ -9,7 +9,7 @@ import div_9id.ammo.m60e3
 import div_9id.ammo.m203
 import mw2.constants.ndf_paths as ndf_paths
 import mw2.constants.paths as paths
-from div_9id.units import AA, ART, HEL, INF, LOG, REC, TNK, transports
+from div_9id.units import AA, AIR, ART, HEL, INF, LOG, REC, TNK, transports
 from mw2.context.mod_creation import ModCreationContext
 from mw2.metadata.division import DivisionMetadata
 from mw2.metadata.mod import ModMetadata
@@ -42,12 +42,16 @@ with Message(f"Creating mod {mod_metadata.name} by {mod_metadata.author}") as ro
                                                       "NATO_Garnison_Berlin",
                                                       "US_101st_Airmobile",
                                                       "UK_2nd_Infantry",
-                                                      "FR_11e_Para")
+                                                      "FR_11e_Para",
+                                                      "RFA_5_Panzer",
+                                                      "RFA_2_PzGrenadier",
+                                                      "FR_5e_Blindee",
+                                                      "US_24th_Inf")
                 # make new units              
                 # TODO: maybe default unit country?
                 # TODO: target module changes with like TModuleType:path/to/property ?      
                 _ = transports.Transports(mod_context)
-                for category in [LOG, INF, ART, TNK, REC, AA, HEL]:
+                for category in [LOG, INF, ART, TNK, REC, AA, HEL, AIR]:
                     group: Callable[[DivisionUnitRegistry, Message], UnitGroup] = getattr(category, 'group')
                     group(division_units, msg).register_all()                
             # make division
