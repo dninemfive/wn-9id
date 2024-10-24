@@ -43,6 +43,9 @@ class NamePathPairWithShowroomEquivalent(NamePathPair):
     @property
     def showroom(self: Self) -> NamePathPair:
         return NamePathPair(self._path, '', self._showroom_name)
+    
+    def showroom_if(self: Self, showroom: bool) -> NamePathPair:
+        return self.showroom if showroom else self
 
 @dataclass(frozen=True)
 class UnitMetadata(object):

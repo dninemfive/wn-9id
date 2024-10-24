@@ -12,6 +12,7 @@ DIVISION_TEXTURES                           = 'GameData/Generated/UserInterface/
 AMMUNITION                                  = 'GameData/Generated/Gameplay/Gfx/Ammunition.ndf'
 WEAPON_DESCRIPTOR                           = 'GameData/Generated/Gameplay/Gfx/WeaponDescriptor.ndf'
 MISSILE_CARRIAGE                            = 'GameData/Generated/Gameplay/Gfx/MissileCarriage.ndf'
+MISSILE_CARRIAGE_DEPICTION                  = 'GameData/Generated/Gameplay/Gfx/MissileCarriageDepiction.ndf'
 AMMUNITION_MISSILES                         = 'GameData/Generated/Gameplay/Gfx/AmmunitionMissiles.ndf'
 BUTTON_TEXTURES_UNITES                      = 'GameData/Generated/UserInterface/Textures/ButtonTexturesUnites.ndf'
 SHOWROOM_UNITS                              = 'GameData/Generated/Gameplay/Gfx/ShowRoomUnits.ndf'
@@ -43,4 +44,5 @@ ALL = set([ALL_UNITS_TACTIC,
            GENERATED_DEPICTION_VEHICLES,
            GENERATED_DEPICTION_VEHICLES_SHOWROOM,
            GENERATED_DEPICTION_AERIAL_UNITS,
-           GENERATED_DEPICTION_AERIAL_UNITS_SHOWROOM])
+           GENERATED_DEPICTION_AERIAL_UNITS_SHOWROOM,
+           MISSILE_CARRIAGE_DEPICTION])

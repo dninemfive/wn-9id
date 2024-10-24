@@ -7,7 +7,7 @@ import mw2.utils.ndf.edit as edit
 
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
-    with ctx.create_unit("A-6E INTRUDER SWIP", "US", "F4F_Phantom_II_AT_RFA") as a6e_clu:
-        a6e_clu.modules.ui.UpgradeFromUnit='d9_A6E_INTRUDER_LGB_US'
-        a6e_clu.unit.set_country('US')
-        return a6e_clu
+    with ctx.create_unit("A-6E INTRUDER SWIP", "US", "F4F_Phantom_II_AT_RFA") as a6e_swip:
+        a6e_swip.modules.ui.UpgradeFromUnit='d9_A6E_INTRUDER_LGB_US'
+        a6e_swip.unit.set_country('US')
+        return a6e_swip
