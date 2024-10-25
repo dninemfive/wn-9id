@@ -88,7 +88,7 @@ class TStaticMissileCarriageSubDepictionGenerator(object):
             MissileCarriageConnosseur=unit.missile_carriage.showroom_if(showroom).path,
             Missiles=[x.to_ndf() for x in self.Missiles],
             Pylons=f'{self.Pylons}{'_Showroom' if showroom else ''}',
-            ReferenceMesh=unit.reference_mesh.path
+            ReferenceMesh=self.ReferenceMesh
         )
 
 MK_82_X12 = TMissileCarriageWeaponInfo(12, 'eAGM', 2, 'eMountingBomb')
@@ -114,8 +114,8 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
             weapons.Salves.remove(0)
             weapons.SalvoIsMainSalvo.remove(0)
             weapons.TurretDescriptorList.remove(0)
-        add_carriages(ctx.ndf[ndf_paths.MISSILE_CARRIAGE], a6e_he.new_unit, MISSILE_CARRIAGE_CONNOISSEUR)
-        add_carriages(ctx.ndf[ndf_paths.MISSILE_CARRIAGE_DEPICTION], a6e_he.new_unit, SUBGENERATOR)
+        # add_carriages(ctx.ndf[ndf_paths.MISSILE_CARRIAGE], a6e_he.new_unit, MISSILE_CARRIAGE_CONNOISSEUR)
+        # add_carriages(ctx.ndf[ndf_paths.MISSILE_CARRIAGE_DEPICTION], a6e_he.new_unit, SUBGENERATOR)
         # make new entry in GeneratedDepictionAerialUnitsShowroom.ndf pointing at the SubGenerators
         # copy relevant Ops?
         # do the same for non-showroom files
