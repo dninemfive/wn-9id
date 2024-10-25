@@ -32,16 +32,17 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
         (
             'Mot. Rifles',
             [
-                u(mot_rifles_ldr,           2, transports=[M1038_HUMVEE, M998_HUMVEE_M2HB, M998_HUMVEE_AGL, BLACKHAWK]),
+                u(mot_rifles_ldr,           3, transports=[M1038_HUMVEE, M998_HUMVEE_M2HB, M998_HUMVEE_AGL, BLACKHAWK]),
                 u(mot_rifles_,              1, transports=[M1038_HUMVEE,                   M998_HUMVEE_AGL, BLACKHAWK]),
-                u(mot_rifles_dragon_,       3, transports=[M1038_HUMVEE, M998_HUMVEE_M2HB,                  BLACKHAWK])
+                u(mot_rifles_dragon_,       2, transports=[M1038_HUMVEE, M998_HUMVEE_M2HB,                  BLACKHAWK])
             ]
         ),
         (
             'Engineers',
             [
                 u('Engineer_CMD_US',        1, transports=[M1038_HUMVEE,                   M998_HUMVEE_AGL]),
-                u(mot_engineers_,           2, transports=[M1038_HUMVEE,                   M998_HUMVEE_AGL])
+                u(mot_engineers_,           2, transports=[M1038_HUMVEE,                   M998_HUMVEE_AGL]),
+                u('Engineers_Dragon_US',    1, transports=[M1038_HUMVEE, M998_HUMVEE_M2HB])
             ]
         ),
         (
@@ -62,8 +63,8 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
         (
             'Support',
             [
-                u(mk19,                     1, transports=[M998_HUMVEE,                    M998_HUMVEE_AGL]),
-                u(m224,                     1, transports=[M998_HUMVEE,                                     BLACKHAWK])
+                u(mk19,                     2, transports=[M998_HUMVEE,                    M998_HUMVEE_AGL]),
+                u(m224,                     2, (6,4,2,0), [M998_HUMVEE,                                     BLACKHAWK])
             ]
         ),
         (
@@ -72,8 +73,8 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
                 u(mot_mp,                   2, transports=[M998_HUMVEE,  M1025_HUMVEE_MP]),
                 u('Rifles_Cavalry_US',      2, transports=[              M998_HUMVEE_M2HB, M998_HUMVEE_AGL, BLACKHAWK]),
                 u('Rifles_HMG_US',          1, transports=[M1038_HUMVEE, M998_HUMVEE_M2HB,                  BLACKHAWK]),
-                u('ATteam_TOW2_US',         3, transports=[M998_HUMVEE,                    M998_HUMVEE_AGL]),
-                u(m1025_agl, 2, (0, 8, 5, 0))
+                u('ATteam_TOW2_US',         2, transports=[M998_HUMVEE,                    M998_HUMVEE_AGL]),
+                u(m1025_agl,                5, (0, 8, 5, 0))
             ]
         )
     )
