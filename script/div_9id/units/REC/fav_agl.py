@@ -9,9 +9,7 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     # air transportable
     # weapon: Mk.19 Mod III 40mm
     with ctx.create_unit("#RECO1 FAV AGL", "US", "Iltis_HMG_BEL") as fav_agl:
-        fav_agl.modules.type.edit_members(
-            MotherCountry='US'                             # TODO: set this, icon flag, &c with one item
-        )
+        fav_agl.unit.set_country('US', 'NATO')
         fav_agl.command_point_cost = 45
         fav_agl.modules.ui.edit_members(
             SpecialtiesList=['reco', 'air_transportable'],

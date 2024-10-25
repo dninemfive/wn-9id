@@ -7,9 +7,9 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     with ctx.create_unit("#RECO1 FAV", "US", "Iltis_trans_RFA") as fav:
         fav.modules.type.edit_members(
             AcknowUnitType='Reco',
-            TypeUnitFormation='Reconnaissance',
-            MotherCountry='US'                             # TODO: set this, icon flag, &c with one item
+            TypeUnitFormation='Reconnaissance'
         )
+        fav.unit.set_country('US')
         fav.modules.production.Factory = 'Recons'
         fav.tags.add('Vehicule_Reco')
         fav.modules.ui.edit_members(

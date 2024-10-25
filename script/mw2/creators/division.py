@@ -12,8 +12,6 @@ from mw2.utils.types.message import Message
 from ndf_parse.model import List, ListRow, Map, MapRow
 from ndf_parse.model.abc import CellValue
 
-
-# todo: corresponding wrapper
 class DivisionCreator(object):
     def __init__(self: Self,
                  guid: str,

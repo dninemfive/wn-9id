@@ -5,8 +5,6 @@ import mw2.utils.ndf.ensure as ensure
 from .ndf import (COUNTRY_CODE_TO_COUNTRY_SOUND_CODE,
                   COUNTRY_CODE_TO_NATIONALITE)
 
-
-# TODO: generate these from source
 class NdfEnum(object):
     def __init__(self: Self, prefix: str, suffix: str, *values: str):
         self.prefix = prefix
@@ -17,8 +15,6 @@ class NdfEnum(object):
         s = ensure.prefix_and_suffix(s, self.prefix, self.suffix)
         assert s in self.values, f'{s} is not one of the valid values: {str(self.values)}'
         return s
-    
-    # TODO: way to alias enums (e.g. Factory: REC = 'Recons')
 
 # not staticmethod because that doesn't preserve type hints???
 def NdfEnum_literals(*values: str) -> NdfEnum:
@@ -66,8 +62,6 @@ AcknowUnitType                          = NdfEnum_with_path('~/TAcknowUnitType_'
                                                             'Transport',
                                                             'Vehicle')
 
-# TODO: automate defining custom countries
-#   needs sound code, flag, name, idk what else
 MotherCountry                           =  NdfEnum_literals('BEL',
                                                             'DDR',
                                                             'FR',

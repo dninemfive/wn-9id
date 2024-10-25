@@ -9,7 +9,6 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         # from M167A2: 
         #    OpticalStrengthAltitude = 120
         #    SpecializedDetectionsGRU = MAP[(EVisionUnitType/AlwaysInHighAltitude, 10601.0)]
-        # TODO: custom trait which leaves the normal Stinger C value when moving and activates the radar (M167A2 value) when stationary
         stinger_tdar.modules.edit_members('TScannerConfigurationDescriptor',
                                           OpticalStrengthAltitude=100,
                                           SpecializedDetectionsGRU={"EVisionUnitType/AlwaysInHighAltitude": str((8481.0 + 10601.0)/2)})

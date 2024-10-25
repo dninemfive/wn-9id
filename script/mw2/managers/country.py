@@ -15,5 +15,3 @@ class CountryInfo(object):
 class CountryManager(object):
     def __init__(self: Self, cache: Cache):
         ...
-
-    # TODO: register countries here

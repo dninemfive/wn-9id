@@ -16,4 +16,3 @@ class BaseDamageModuleWrapper(UnitModuleWrapper):
     @MaxPhysicalDamages.setter
     def MaxPhysicalDamages(self: Self, value: int):
         edit.members(self.object, MaxPhysicalDamages=value)
-    # TODO: remaining stuff

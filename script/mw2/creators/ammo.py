@@ -42,11 +42,9 @@ class AmmoCreator(object):
         copy: Object = ndf.by_name(self.copy_of).value.copy()
         edit.members(copy,
                      DescriptorId=self.ammo_guid)
-        # TODO: generic "copy descriptor" method which automatically checks for and sets any member named DescriptorId?
         copy.by_member('HitRollRuleDescriptor').value.by_member('DescriptorId').value = self.hit_roll_guid
         return copy
 
-    # TODO: copy of this but for the missile file?
     @ndf_path(ndf_paths.AMMUNITION)
     def edit_ammunition(self: Self, ndf: List):
         ndf.add(ListRow(self.object, namespace=self.name))

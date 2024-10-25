@@ -10,6 +10,7 @@ from mw2.utils.ndf import ensure
 from mw2.wrappers.str_list import StrListWrapper
 from mw2.wrappers.unit_modules._abc import UnitModuleKey, UnitModuleWrapper
 from ndf_parse.model import List, Object
+from mw2.constants.literals import PrimarySpecialty, SecondarySpecialty, Specialty
 
 
 class UnitUiModuleWrapper(UnitModuleWrapper):
@@ -125,3 +126,11 @@ class UnitUiModuleWrapper(UnitModuleWrapper):
     @localized_name.setter
     def localized_name(self: Self, value: str) -> None:
         self.NameToken = self.ctx.localization.register(value)
+
+    @property
+    def main_specialty(self: Self) -> str:
+        return self.SpecialtiesList[0]
+    
+    @main_specialty.setter
+    def main_specialty(self: Self, value: PrimarySpecialty | str) -> None:
+        self.SpecialtiesList[0] = value

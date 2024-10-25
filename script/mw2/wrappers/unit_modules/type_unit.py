@@ -19,7 +19,6 @@ class TypeUnitModuleWrapper(UnitModuleWrapper):
     
     @Nationalite.setter
     def Nationalite(self: Self, value: literals.Nationalite | Literal['NATO', 'PACT']) -> None:
-        # TODO: enum aliases.
         if value == 'NATO':
             value = 'Allied'
         if value == 'PACT':

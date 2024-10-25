@@ -10,8 +10,6 @@ from ndf_parse.model import List, ListRow, MemberRow, Object
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     # ✪ M997 TC3V
-    # TODO: add a little icon after/instead of the cmd one indicating that it has a larger command radius
-    # TODO: larger command radius than usual
     with ctx.create_unit("#CMD M997 TC3V", "US", "M1025_Humvee_CMD_US", 'M1038_Humvee_US') as m997_tc3v:
         m997_tc3v.modules.replace_from_many(
             'M1038_Humvee_US',

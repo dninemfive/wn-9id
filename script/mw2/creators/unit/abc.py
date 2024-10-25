@@ -94,7 +94,6 @@ class UnitCreator(ABC):
 
     # public methods
 
-    # TODO: cache created object or smth so you don't need the weaponcreator to edit it
     def edit_weapons(self: Self, copy_of: str | None = None) -> WeaponCreator:
         if copy_of is None:
             copy_of = self.src_unit.name

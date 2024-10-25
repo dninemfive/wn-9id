@@ -46,14 +46,11 @@ class BasicUnitCreator(UnitCreator):
             copy.DescriptorId = self.ctx.guids.generate(self.new_unit.descriptor.showroom.name)
             copy.modules.type.copy(self.unit.modules.type.object)
             showroom_unit = copy.object
-        # TODO: check if the unit actually has a weapon descriptor to reference
         # try:
         #     copy.modules.remove_where(lambda x: isinstance(x.value, str) and x.value.startswith('$/GFX/Weapon/WeaponDescriptor_'))
         #     copy.modules.append(self.new_unit.weapon_descriptor_path)
         # except:
         #     pass
-        # for vehicles with replaced turret models, will have to make a new TacticVehicleDepictionTemplate and add it to GeneratedDepictionVehicles.ndf
-        # and then set the depiction path here
         ndf.add(ListRow(showroom_unit, visibility='export', namespace=self.new_unit.descriptor.showroom.name))
 
     @ndf_path(ndf_paths.SHOWROOM_EQUIVALENCE)

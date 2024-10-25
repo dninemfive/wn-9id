@@ -8,9 +8,7 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     # range: custom
     # air transportable
     with ctx.create_unit("#RECO1 FAV M2HB", "US", "Iltis_HMG_BEL") as fav_m2hb:
-        fav_m2hb.modules.type.edit_members(
-            MotherCountry='US'                             # TODO: set this, icon flag, &c with one item
-        )
+        fav_m2hb.unit.set_country('US')
         fav_m2hb.command_point_cost = 45
         fav_m2hb.modules.ui.edit_members(
             SpecialtiesList=['reco', 'air_transportable']

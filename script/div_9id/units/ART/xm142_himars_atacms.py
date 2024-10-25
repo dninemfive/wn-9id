@@ -11,7 +11,7 @@ from ndf_parse.model import List, ListRow
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair | None:
     with ctx.create_unit("XM142 HIMARS [ATACMS]", "US", "BM21_Grad_SOV") as xm142_himars_atacms:
-        # TODO: weapon
+        # weapon
         # update speed, fuel capacity
         xm142_himars_atacms.unit.set_country('US')
         # change unit dangerousness

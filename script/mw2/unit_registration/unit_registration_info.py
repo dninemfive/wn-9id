@@ -3,7 +3,6 @@ from typing import Iterable
 
 from . import _types
 
-# TODO: make packs nullable to allow number of packs to be looked up?
 @dataclass
 class UnitRegistrationInfo(object):
     unit: str | _types.UnitDelegate

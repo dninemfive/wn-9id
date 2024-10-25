@@ -1,5 +1,3 @@
-# TODO: dynamically load these from annotations on loaded types?
-
 ALL_UNITS_TACTIC                            = 'GameData/Generated/Gameplay/Gfx/AllUnitsTactic.ndf'
 DECK_SERIALIZER                             = 'GameData/Generated/Gameplay/Decks/DeckSerializer.ndf'
 DIVISIONS                                   = 'GameData/Generated/Gameplay/Decks/Divisions.ndf'

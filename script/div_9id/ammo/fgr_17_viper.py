@@ -8,4 +8,3 @@ def create(ctx: ModCreationContext) -> str:
         creator.edit_members(Name=ctx.localization.register('FGR-17 Viper'),
                              Caliber=ctx.localization.register('70mm'),
                              PorteeMaximaleTBAGRU=300)
-        # TODO: custom texture

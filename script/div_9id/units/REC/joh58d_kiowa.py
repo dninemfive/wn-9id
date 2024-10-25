@@ -28,7 +28,6 @@ def edit_weapons(weapons: WeaponCreator) -> str:
     weapons.Salves = [1,1]
     # copy first turret unit descriptor from Kiowa WR; replace ammunition with TOW 2A x4
     #       Ammo_AGM_BGM71D_TOW_2_x4
-    # TODO: TOW 2A instead?
     weapons.get_turret_weapon(0).by_member('Ammunition').value = '$/GFX/Weapon/Ammo_AGM_BGM71D_TOW_2_x4'
     weapons.add_mounted_weapon(Ammunition='$/GFX/Weapon/Ammo_RocketAir_Hydra_70mm_x19',
                                EffectTag="'FireEffect_RocketAir_Hydra_70mm_x19'")

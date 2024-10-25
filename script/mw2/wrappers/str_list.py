@@ -15,6 +15,9 @@ class StrListWrapper(object):
 
     def __getitem__(self: Self, index: int) -> str:
         return self._post_get(self._list[index])
+    
+    def __setitem__(self: Self, index: int, value: str) -> None:
+        self._list[index] = self._pre_add(value)
 
     def add(self: Self, val: str) -> None:
         self._list.add(ensure.listrow(self._pre_add(val)))

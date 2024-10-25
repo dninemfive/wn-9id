@@ -24,7 +24,7 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         )
         trans_m998_humvee_m2hb.modules.ui.edit_members(
             UpgradeFromUnit="M1025_Humvee_MP_US",
-            SpecialtiesList=['transport', '_transport1'], # TODO: function to set something as a transporter or a prime mover all in one go
+            SpecialtiesList=['transport', '_transport1'],
             InfoPanelConfigurationToken='VehiculeTransporter',
             MenuIconTexture='appui',
             TypeStrategicCount='Transport')

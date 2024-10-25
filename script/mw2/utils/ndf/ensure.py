@@ -50,7 +50,6 @@ def _add_from(map_or_object: Map | Object, items: dict[str, CellValue | None] | 
             map_or_object.add(row_fn(str(k), v))
 
 def _map(_dict: Map | dict = {}, *kvps: tuple[str, CellValue | None], **items: CellValue | None) -> Map:
-    # TODO: remove None values from existing maps and/or add kvps, items to them
     if isinstance(_dict, Map):
         return _dict
     result = Map()

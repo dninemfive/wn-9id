@@ -21,8 +21,7 @@ class ListWrapper(Generic[T]):
     def __getitem__(self: Self, index: int) -> T:
         return self._from_ndf(self._list[index])
 
-    # TODO: adder for ListRows themselves
-    def add(self: Self, val: CellValue) -> None:
+    def add(self: Self, val: ListRow | CellValue) -> None:
         self._list.add(ensure.listrow(self._to_ndf(val)))
 
     def remove(self: Self, val: T) -> None:

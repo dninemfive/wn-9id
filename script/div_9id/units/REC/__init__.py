@@ -39,9 +39,6 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
             [
                 u(folt_,             2,   [0, 8, 6, 4], [FAV, REC_HUMVEE_AGL, BLACKHAWK]),
                 u('LRRP_US',        3,      transports=[M998_HUMVEE, M151A2_M2HB]),
-                # CEWI?
-                # TODO: when NORTHAG releases, change M35 here to CUCV
-                # (or MCT?)
                 u(osd,               1,   [0, 6, 4, 0], [M35, CHINOOK]),
                 u(iew_team_,         2,      transports=[REC_HUMVEE_M2HB]),
                 u(scouts,            2,      transports=[REC_HUMVEE_M2HB, REC_HUMVEE_AGL, BLACKHAWK]),
@@ -64,7 +61,4 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
                 # [[👓]] F-14D TOMCAT TARPS
             ]
         )
-        # TODO: Misc.
-        #   - KLR-250? Transported in Humvees?
-        #   - M998 HUMVEE G/VLLD (when NORTHAG releases)
     )

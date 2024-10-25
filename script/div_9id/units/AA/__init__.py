@@ -39,7 +39,6 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
             [
                 u(t_chap,   1,    transports=M35),
                 u(avenger,  2),
-                # TODO: M998 SETTER? (probably not)
                 # u(joh58c,   1)
             ]
         )

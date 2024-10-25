@@ -61,7 +61,6 @@ class TemplateDepictionStaticMissilesAirUnit(object):
     PhysicalProperty: str
     ProjectileModelResource: str
 
-# TODO: @ndf_type class which takes a type argument and automatically implements to_ndf() as shown below
 @dataclass
 class TStaticMissileCarriageSubDepictionMissileInfo(object):
     Depiction: TemplateDepictionStaticMissilesAirUnit

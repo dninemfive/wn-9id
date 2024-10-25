@@ -73,7 +73,6 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
                 u('Rifles_Cavalry_US',      2, transports=[              M998_HUMVEE_M2HB, M998_HUMVEE_AGL, BLACKHAWK]),
                 u('Rifles_HMG_US',          1, transports=[M1038_HUMVEE, M998_HUMVEE_M2HB,                  BLACKHAWK]),
                 u('ATteam_TOW2_US',         3, transports=[M998_HUMVEE,                    M998_HUMVEE_AGL]),
-                # TODO: way to specify a string for UnitsPerXp to look up a random unit?
                 u(m1025_agl, 2, (0, 8, 5, 0))
             ]
         )

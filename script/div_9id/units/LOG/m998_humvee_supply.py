@@ -11,20 +11,14 @@ MODULES_DESCRIPTORS = "ModulesDescriptors"
 
 M1038, ROVER = 'M1038_Humvee_US', 'Rover_101FC_supply_UK'
 
-# todo: put most of this structure in an @annotation
 def create(ctx: ModCreationContext) -> NewSrcUnitPair | None:
-    # M998 HUMVEE SUPPLY
-    #   copy of: M35 Supply
     with ctx.create_unit("M998 HUMVEE SUPPLY", "US", ROVER, M1038) as m998_humvee_supply:
-        # need to have a way to just do (unit).MakeSupply, (unit).MakeNotTransport, &c
         edit_with_m1038(m998_humvee_supply, ctx.get_unit(M1038))
-        # edit_with_rover101fc(m998_humvee_supply, ctx.get_unit(ROVER))
         m998_humvee_supply.modules.type.MotherCountry = 'US'
         m998_humvee_supply.modules.type.Nationalite = 'NATO'
         m998_humvee_supply.modules.ui.edit_members(
             # upgrade from M561 SUPPLY GOAT
             UpgradeFromUnit='Gama_Goat_supply_US',
-            # TODO: automate this as part of copying the appearance of another unit?
             ButtonTexture='M1038_Humvee_US',
 
         )

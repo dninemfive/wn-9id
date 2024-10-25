@@ -2,7 +2,7 @@ from mw2.context.mod_creation import ModCreationContext
 from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
 from mw2.utils.ndf import ensure
 
-FLIGHT_ALTITUDE = 706 # = 3000 / 3.2 * METRE TODO: Recalculate to GRU
+FLIGHT_ALTITUDE = 706 # = 3000 / 3.2 * METRE
                      # weird discrepancy: 706 for LowAltitudeFlyingAltitude, but 494 for Altitude
 FLIGHT_SPEED = 200
 DRAGONFLY = 'A37B_Dragonfly_US'
@@ -10,7 +10,6 @@ DRAGONFLY = 'A37B_Dragonfly_US'
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     # E-2C HAWKEYE
     with ctx.create_unit("#RECO1 MQM-10 AQUILA", "US", DRAGONFLY, button_texture_src_path='img/units/rq_2_pioneer/icon.png') as mqm_10_aquila:
-        # TODO: something to edit plane flight speed and altitude all in one go
         # mqm_10_aquila.modules.edit_members('AirplanePositionModuleDescriptor', LowAltitudeFlyingAltitudeGRU=FLIGHT_ALTITUDE)
         mqm_10_aquila.modules.get('GenericMovement', True).by_member('Default').value.by_member('MaxSpeedInKmph').value = FLIGHT_SPEED
         # copy MiG-27M airplane module for maneuverability (worst maneuverability in the game, apparently)
@@ -45,7 +44,6 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         # remove weapons
         mqm_10_aquila.modules.remove('WeaponManager', by_name=True)
         mqm_10_aquila.modules.remove('MissileCarriage', by_name=True)
-        # TODO: update depiction and showroom unit
         # - remove Operators:
         #   - DepictionOperator_Turret1_Aim
         #   - Op_A37B_Dragonfly_US_Weapon*
@@ -57,7 +55,6 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         mqm_10_aquila.modules.edit_members('TVisibilityModuleDescriptor', UnitConcealmentBonus=3.5)
         # change tags
         mqm_10_aquila.modules.ui.edit_members(
-            # once NORTHAG is out, add '_uav' (assuming i update my version of the 9ID at all 😭)
             SpecialtiesList=['reco'],
             MenuIconTexture='reco',
             TypeStrategicCount = 'Reco_Hel'
