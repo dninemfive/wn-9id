@@ -70,6 +70,7 @@ class DivisionUnitRegistry(object):
             If None, the unit will only be available without transport.
             If Iterable, the unit will be available with the specified transports; it will also be available without transport iff None is in the iterable.
         """
+        print(f'\n| register({unit}, {packs}, {units_per_xp}, {transports})')
         transports = ensure_unit_path_list(transports)
         if isinstance(unit, str):
             unit: UnitMetadata = UnitMetadata(unit)
@@ -84,6 +85,7 @@ class DivisionUnitRegistry(object):
                       transports: Iterable[_types.Transport] | None,
                       msg: Message)\
                         -> tuple[_types.UnitsPerXp, list[_types.Transport] | None]:
+        print(f'\n|\t\t_look_up_rule_items({unit}, {units_per_xp}, {transports})')
         if units_per_xp is not None:
             return (units_per_xp, transports)
         rule: TDeckUniteRule = self.lookup.look_up(unit, msg)
@@ -101,6 +103,7 @@ class DivisionUnitRegistry(object):
                   packs: int,
                   units_per_xp: _types.UnitsPerXp,
                   transports: str | list[str] | None) -> None:
+        print(f'\n|\t_register({unit.name}, {src.name if src is not None else src}, {packs}, {units_per_xp}, {transports})')
         # TODO: message parameter for properly structuring groups
         modded: bool = src is not None
         # print(unit.name, src.name if src is not None else None, modded)
@@ -109,6 +112,7 @@ class DivisionUnitRegistry(object):
                                                                 units_per_xp,
                                                                 transports,
                                                                 msg)
+            print(f'\n|\t-> {units_per_xp}, {transports}')
             self.units.append(UnitRules(unit, packs, units_per_xp, transports))
             if modded:
                 self.unit_ids.register(unit.descriptor.path)

@@ -31,12 +31,13 @@ class TDeckUniteRule(object):
             transports = [x.value for x in ndf.by_member(KEY_AVAILABLE_TRANSPORT_LIST).value]
         except:
             pass
+        print(f'\nTDeckUniteRule.NumberOfUnitInPack: {[float(x.value) for x in ndf.by_member(KEY_NUMBER_OF_UNIT_IN_PACK_XP_MULTIPLIER).value]}')
         return TDeckUniteRule(
             ndf.by_member(KEY_UNIT_DESCRIPTOR).value,
             ndf.by_member(KEY_AVAILABLE_WITHOUT_TRANSPORT).value,
             transports,
             ndf.by_member(KEY_NUMBER_OF_UNIT_IN_PACK).value,
-            [float(x) for x in ndf.by_member(KEY_NUMBER_OF_UNIT_IN_PACK_XP_MULTIPLIER).value]
+            [float(x.value) for x in ndf.by_member(KEY_NUMBER_OF_UNIT_IN_PACK_XP_MULTIPLIER).value]
         )
 
     def to_ndf(self: Self) -> Object:
@@ -69,4 +70,5 @@ class TDeckUniteRule(object):
     
     @property
     def units_per_xp(self: Self) -> UnitsPerXp:
-        return (int(x * int(self.NumberOfUnitInPack)) for x in self.NumberOfUnitInPackXPMultiplier)
+        print(f'\nunits_per_xp:\n{int(self.NumberOfUnitInPack)} * {[x for x in self.NumberOfUnitInPackXPMultiplier]}')
+        return tuple(int(x * int(self.NumberOfUnitInPack)) for x in self.NumberOfUnitInPackXPMultiplier)
