@@ -6,7 +6,7 @@ from ..infantry_weapons import M16A2, M240
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     # CMD MOT. RIFLES LDR.
-    with ctx.create_infantry_unit("#CMD MOT. RIFLES LDR.", "US", "Rifles_CMD_US", [(M16A2, 5), (M240, 1)]) as mot_rifles_ldr:
+    with ctx.create_infantry_unit("#CMD MOT. RIFLES LDR.", "US", "Rifles_CMD_US", [(M16A2, 5), (M240, 1)], 'img/units/mot_rifles/ldr/icon.png') as mot_rifles_ldr:
         mot_rifles_ldr.command_point_cost -= 10
         return mot_rifles_ldr
         

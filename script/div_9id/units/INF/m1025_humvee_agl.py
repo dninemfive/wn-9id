@@ -14,4 +14,5 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         m1025_agl.modules.ui.TypeStrategicCount = 'Support'
         m1025_agl.modules.remove('TDeploymentShiftModuleDescriptor')
         m1025_agl.modules.remove('Transporter', by_name=True)
+        m1025_agl.modules.production.Factory = 'Infantry'
         return m1025_agl
