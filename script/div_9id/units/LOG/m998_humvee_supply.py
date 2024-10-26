@@ -28,12 +28,6 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair | None:
         return (m998_humvee_supply, ROVER)
 
 def edit_with_m1038(m998_humvee_supply: BasicUnitCreator, m1038_humvee: UnitWrapper) -> None:
-    m998_humvee_supply.modules.replace_from(m1038_humvee, 'ApparenceModel', by_name=True)
     m998_humvee_supply.modules.replace_from(m1038_humvee, 'GenericMovement', by_name=True)
     m998_humvee_supply.modules.replace_from(m1038_humvee, 'LandMovement', by_name=True)
     m998_humvee_supply.modules.replace_from(m1038_humvee, 'TBaseDamageModuleDescriptor')
-
-def edit_with_rover101fc(m998_humvee_supply: BasicUnitCreator, rover_101fc_supply: UnitWrapper) -> None:
-    m998_humvee_supply.modules.replace_from(rover_101fc_supply, 'TSupplyModuleDescriptor')
-    m998_humvee_supply.modules.production.command_point_cost\
-         = rover_101fc_supply.modules.production.command_point_cost

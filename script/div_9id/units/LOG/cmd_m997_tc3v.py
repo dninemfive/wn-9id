@@ -11,12 +11,6 @@ from ndf_parse.model import List, ListRow, MemberRow, Object
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     # ✪ M997 TC3V
     with ctx.create_unit("#CMD M997 TC3V", "US", "M1025_Humvee_CMD_US", 'M1038_Humvee_US') as m997_tc3v:
-        m997_tc3v.modules.replace_from_many(
-            'M1038_Humvee_US',
-            ('ApparenceModel', True),
-            'TCadavreGeneratorModuleDescriptor',
-            'TBaseDamageModuleDescriptor'
-        )
         m997_tc3v.modules.production.command_point_cost = 95
         m997_tc3v.modules.ui.ButtonTexture = 'M1038_Humvee_US'
         m997_tc3v.modules.ui.UpgradeFromUnit = 'M1025_Humvee_CMD_US'
