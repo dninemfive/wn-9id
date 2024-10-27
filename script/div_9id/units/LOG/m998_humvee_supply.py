@@ -7,7 +7,7 @@ from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
 from mw2.wrappers.unit import UnitWrapper
 from ndf_parse.model import List, Object
 
-from ._utils import untransportify_m1038_gfx
+from ._utils import m1038ify_m1025_gfx
 from mw2.constants import ndf_paths
 
 MODULES_DESCRIPTORS = "ModulesDescriptors"
@@ -30,7 +30,7 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair | None:
         ctx.get_unit('M35_supply_US').modules.ui.UpgradeFromUnit = m998_humvee_supply
         m998_humvee_supply.modules.edit_members('ApparenceModel',
                                                 by_name=True,
-                                                Depiction=untransportify_m1038_gfx(ctx.ndf[ndf_paths.GENERATED_DEPICTION_VEHICLES], m998_humvee_supply.new_unit))
+                                                Depiction=m1038ify_m1025_gfx(ctx.ndf[ndf_paths.GENERATED_DEPICTION_VEHICLES], m998_humvee_supply.new_unit))
         return (m998_humvee_supply, ROVER)
 
 def edit_with_m1038(m998_humvee_supply: BasicUnitCreator, m1038_humvee: UnitWrapper) -> None:

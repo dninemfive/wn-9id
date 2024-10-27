@@ -7,7 +7,7 @@ from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
 from mw2.utils.ndf import ensure
 from ndf_parse.model import List, ListRow, MemberRow, Object
 
-from ._utils import untransportify_m1038_gfx
+from ._utils import m1038ify_m1025_gfx
 
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
@@ -18,5 +18,5 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         m997_tc3v.modules.ui.UpgradeFromUnit = 'M1025_Humvee_CMD_US'
         m997_tc3v.modules.edit_members('ApparenceModel',
                                        by_name=True,
-                                       Depiction=untransportify_m1038_gfx(ctx.ndf[ndf_paths.GENERATED_DEPICTION_VEHICLES], m997_tc3v.new_unit))
+                                       Depiction=m1038ify_m1025_gfx(ctx.ndf[ndf_paths.GENERATED_DEPICTION_VEHICLES], m997_tc3v.new_unit))
         return m997_tc3v
