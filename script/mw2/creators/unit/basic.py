@@ -29,8 +29,11 @@ class BasicUnitCreator(UnitCreator):
         super().__init__(ctx, localized_name, new_unit, src_unit, button_texture, msg)
         self.gfx_unit = UnitMetadata.resolve(gfx_unit) if gfx_unit is not None else self.src_unit
 
-    def pre_apply(self: Self, msg: Message) -> None:
-        self.unit.modules.replace_from(self.ctx.get_unit(self.gfx_unit.descriptor.name), 'ApparenceModel', by_name=True)
+    def post_enter(self: Self, msg: Message) -> None:
+        self.unit.modules.replace_from_many(
+            self.gfx_unit.descriptor.name,
+            ('ApparenceModel', True),
+            'TCadavreGeneratorModuleDescriptor')
 
     def post_apply(self: Self, msg: Message) -> None:
         self.edit_showroom_units(self.ndf, msg)

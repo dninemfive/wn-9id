@@ -40,6 +40,7 @@ class UnitCreator(ABC):
     def __enter__(self: Self) -> Self:
         self.msg = self.parent_msg.nest(f"Editing {self.new_unit.descriptor.name}")
         self.msg.__enter__()
+        self.post_enter(self.msg)
         return self
     
     def __exit__(self: Self, exc_type, exc_value, traceback):
@@ -80,6 +81,10 @@ class UnitCreator(ABC):
     # abstract methods
 
     # virtual/abstract methods
+    # virtual
+    def post_enter(self: Self, msg: Message) -> None:
+        pass
+
     # virtual
     def pre_apply(self: Self, msg: Message) -> None:
         pass
