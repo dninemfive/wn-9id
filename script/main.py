@@ -7,7 +7,7 @@ import div_9id.ammo
 import div_9id.ammo.fgr_17_viper
 import div_9id.ammo.m60e3
 import div_9id.ammo.m203
-import mw2.constants.ndf_paths as ndf_paths
+import constants.ndf_paths as ndf_paths
 import mw2.constants.paths as paths
 from div_9id.units import AA, AIR, ART, HEL, INF, LOG, REC, TNK, transports
 from mw2.context.mod_creation import ModCreationContext
