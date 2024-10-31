@@ -39,8 +39,8 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
             '155mm Howitzers',
             [
                 u('Howz_M198_155mm_US', 2,    transports=M35),
-                u(m198_clu,             2, (0, 2, 1, 0), M35),
-                u(m198_copperhead_,     2, (0, 1, 0, 0), M35)
+                u(m198_clu,             1, (0, 2, 1, 0), M35),
+                u(m198_copperhead_,     1, (0, 1, 0, 0), M35)
             ]
         ),
         (

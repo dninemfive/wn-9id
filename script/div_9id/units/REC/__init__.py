@@ -31,25 +31,25 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
             [
                 u(fav_m2hb_,     2, transports=FAV_TRANSPORTS),
                 u(fav_agl_,      2, transports=FAV_TRANSPORTS),
-                u(fav_tow_,      2, transports=FAV_TRANSPORTS)
+                u(fav_tow_,      1, transports=FAV_TRANSPORTS)
             ]
         ),
         (
             'Infantry',
             [
                 u(folt_,             2,   [0, 8, 6, 4], [FAV, REC_HUMVEE_AGL, BLACKHAWK]),
-                u('LRRP_US',        3,      transports=[M998_HUMVEE, M151A2_M2HB]),
+                u('LRRP_US',         2,      transports=[M998_HUMVEE, M151A2_M2HB]),
                 u(osd,               1,   [0, 6, 4, 0], [M35, CHINOOK]),
-                u(iew_team_,         2,      transports=[REC_HUMVEE_M2HB]),
+                u(iew_team_,         1,      transports=[REC_HUMVEE_M2HB]),
                 u(scouts,            2,      transports=[REC_HUMVEE_M2HB, REC_HUMVEE_AGL, BLACKHAWK]),
-                u(scout_at_team,     2,      transports=[REC_HUMVEE_M2HB])
+                u(scout_at_team,     1,      transports=[REC_HUMVEE_M2HB])
             ]
         ),
         (
             'Helicopters',
             [
-                u('OH58C_Scout_US',         2),
-                u('OH58D_Combat_Scout_US',  2),
+                u('OH58C_Scout_US',         3),
+                u('OH58D_Combat_Scout_US',  1),
                 u(kiowa,                    1),
                 u('EH60A_EW_US',            1)
             ]
@@ -57,7 +57,7 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
         (
             'Planes',
             [
-                u(aquila, 2, [6, 0, 0, 0]),
+                u(aquila, 1),
                 # [[👓]] F-14D TOMCAT TARPS
             ]
         )

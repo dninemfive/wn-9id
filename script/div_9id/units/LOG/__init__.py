@@ -15,7 +15,7 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
         (
             'Command',
             [
-                u('M1025_Humvee_CMD_US', 1),
+                u('M1025_Humvee_CMD_US', 2),
                 u(cmd_m997_tc3v_, 1),
                 u('OH58C_CMD_US', 1),
             ]
@@ -26,9 +26,9 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
                 u('FOB_US', 1),
                 u(m998_humvee_supply_, 2),
                 u('M35_supply_US', 1),
-                u('HEMTT_US', 2),
+                u('HEMTT_US', 2, (0, 3, 2, 0)),
                 u('UH60A_Supply_US', 2),
-                u('CH47_Super_Chinook_US', 1),
+                u('CH47_Super_Chinook_US', 2),
             ]
         )
     )

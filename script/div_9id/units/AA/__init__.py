@@ -23,23 +23,23 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
         (
             'MANPADS',
             [
-                u('MANPAD_Stinger_C_US',    1, transports=MANPADS_TRANSPORTS),
-                u(stinger_tdar_,             1, transports=MANPADS_TRANSPORTS)
+                u('MANPAD_Stinger_C_US',    3, transports=MANPADS_TRANSPORTS),
+                u(stinger_tdar_,            1, transports=MANPADS_TRANSPORTS)
             ]
         ),
         (
             'VSHORAD',
             [
-                u(m167a2, 2, transports=M998_HUMVEE),
+                u(m167a2,   1, transports=M998_HUMVEE),
                 u(excalibur, 1, (0, 6, 4, 0))
             ]
         ),
         (
             'SHORAD',
             [
-                u(t_chap,   1,    transports=M35),
+                u(t_chap,   2,    transports=M35),
                 u(avenger,  2),
-                # u(joh58c,   1)
+                u('OH58_CS_US', 1)
             ]
         )
     )
