@@ -54,7 +54,7 @@ with Message(f"Creating mod {mod_metadata.name} by {mod_metadata.author}") as ro
                     group: Callable[[DivisionUnitRegistry, Message], UnitGroup] = getattr(category, 'group')
                     group(division_units, msg).register_all()                
             # make division
-            division_texture_name: str = mod_context.add_division_emblem(root_msg, "img/patch.png", div_metadata) 
+            division_texture_name: str = mod_context.add_division_emblem(root_msg, "img/patch/icon.png", div_metadata) 
             mod_context.create_division(div_metadata,
                                         "Descriptor_Deck_Division_US_82nd_Airborne_multi",
                                         division_units,
