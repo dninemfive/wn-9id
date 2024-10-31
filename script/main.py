@@ -47,7 +47,7 @@ with Message(f"Creating mod {mod_metadata.name} by {mod_metadata.author}") as ro
                                                       "RFA_2_PzGrenadier",
                                                       "FR_5e_Blindee",
                                                       "US_24th_Inf",
-                                                      "SOV_76_VDV_multi")
+                                                      "SOV_76_VDV")
                 # make new units  
                 _ = transports.Transports(mod_context)
                 for category in [LOG, INF, ART, TNK, REC, AA, HEL, AIR]:

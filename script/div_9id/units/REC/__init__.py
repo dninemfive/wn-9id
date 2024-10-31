@@ -49,8 +49,8 @@ def group(registry: DivisionUnitRegistry, parent_msg: Message | None = None) -> 
             'Helicopters',
             [
                 u('OH58C_Scout_US',         3),
-                u('OH58D_Combat_Scout_US',  1),
-                u(kiowa,                    1),
+                u('OH58D_Combat_Scout_US',  2),
+                # u(kiowa,                    1),
                 u('EH60A_EW_US',            1)
             ]
         ),

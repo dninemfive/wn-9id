@@ -9,8 +9,7 @@ DRAGONFLY = 'A37B_Dragonfly_US'
 SCHMEL = 'Pchela_1T_SOV'
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
-    # E-2C HAWKEYE
-    with ctx.create_unit("#RECO1 MQM-10 AQUILA", "US", SCHMEL, button_texture_src_path='img/units/rq_2_pioneer/icon.png') as mqm_10_aquila:
+    with ctx.create_unit("#RECO2 MQM-10 AQUILA", "US", SCHMEL, button_texture_src_path='img/units/rq_2_pioneer/icon.png') as mqm_10_aquila:
         mqm_10_aquila.unit.set_country('US')
         ctx.get_unit(DRAGONFLY).modules.ui.UpgradeFromUnit = mqm_10_aquila
         return mqm_10_aquila

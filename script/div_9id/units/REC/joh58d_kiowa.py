@@ -9,6 +9,7 @@ from ndf_parse.model import List, ListRow, Object
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     # JOH-58D KIOWA
     # like a mix of the other Kiowas, with 4 TOW 2A and 19 Hydra 70
+    # crashes because there aren't enough hardpoints :sob:
     with ctx.create_unit("#RECO3 JOH-58D KIOWA", "US", "OH58D_Combat_Scout_US") as joh58d_kiowa:
         with joh58d_kiowa.edit_weapons() as weapons:
             edit_weapons(weapons)
