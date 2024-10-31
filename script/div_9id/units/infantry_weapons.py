@@ -32,6 +32,12 @@ SATCHEL_CHARGE = InfantryWeapon('$/GFX/Weapon/Ammo_Grenade_Satchel_Charge',
                                 5,
                                 'grenade',
                                 is_secondary=True)
+SMOKE_GRENADE  = InfantryWeapon('$/GFX/Weapon/Ammo_Grenade_SMOKE',
+                                "'FireEffect_Grenade_SMOKE'",
+                                '$/GFX/DepictionResources/Modele_MainNue', # apparently smoke grenades just use the same model as satchel charges lmao
+                                3,
+                                'grenade',
+                                is_secondary=True)
 TOW_SCAT        = InfantryWeapon('$/GFX/Weapon/Ammo_ATGM_BGM71_TOW',
                                  "'FireEffect_M47_DRAGON_II'",
                                  '$/GFX/DepictionResources/Modele_M47_DRAGON_II',
