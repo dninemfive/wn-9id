@@ -20,7 +20,7 @@ from mw2.utils.bat import generate_mod, reset_source
 from mw2.utils.types.message import Message
 
 wn_metadata = WarnoMetadata(paths.WARNO_DIRECTORY)
-mod_metadata = ModMetadata('dninemfive', '9th Infantry Division (Motorized)', wn_metadata, "0.0.0", 'd9', 'd99ID')
+mod_metadata = ModMetadata('dninemfive', '9th Infantry Division (HTMD)', wn_metadata, "0.0.0", 'd9', 'd99ID')
 div_metadata = DivisionMetadata('d9', '9ID', 'US', 1390)
 
 reset_source(mod_metadata, wn_metadata)
@@ -60,8 +60,8 @@ with Message(f"Creating mod {mod_metadata.name} by {mod_metadata.author}") as ro
                                         division_units,
                                         "Descriptor_Deck_Division_US_8th_Inf_multi",
                                         root_msg,
-                                        DivisionName=mod_context.localization.register("9TH INFANTRY DIVISION (HTTB)"),
-                                        DescriptionHintTitleToken=mod_context.localization.register("9TH INFANTRY DIVISION (HIGH-TECH. TESTBED)"),
+                                        DivisionName=mod_context.localization.register("9TH INFANTRY DIVISION (HTMD)"),
+                                        DescriptionHintTitleToken=mod_context.localization.register("9TH INFANTRY DIVISION (HTMD)"),
                                         EmblemTexture = division_texture_name)
             # add a default deck to Decks.ndf (not required)
     
