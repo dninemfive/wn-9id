@@ -11,7 +11,7 @@ Uses [ndf-parse](https://github.com/Ulibos/ndf-parse) to make updating less tedi
   - Special thanks to Lt. Col. Stephen L. Bowman, Lt. Col. John M. Kendall, and Lt. Col. James L. Saunders, and all the other contributors to the [Motorized Experience of the 9th Infantry Division](https://apps.dtic.mil/sti/pdfs/ADA370233.pdf) report, which was an indispensible and fascinating read.
 
 # Image Credits
-- The 9th Infantry Division (MTZ.) icon is adapted from<sup>1</sup> the [9th Infantry Division shoulder patch](https://commons.wikimedia.org/wiki/File:9th_Infantry_Division_patch.svg) found on Wikimedia Commons, created by Steven Williamson and placed in the public domain as a government work product.
+- The 9th Infantry Division (HTMD) icon is based on a patch found on the cover of [*Army RD&A Magazine Jan-Feb 1983*]() and used as resources the official [9th Infantry Division shoulder patch](https://commons.wikimedia.org/wiki/File:9th_Infantry_Division_patch.svg) found on Wikimedia Commons, created by Steven Williamson and placed in the public domain as a government work product, and the [Light Attack Battalion patch](https://www.fastattackvehicle.com/FAV%20Logo%20(3).jpg) found on [fastattackvehicle.com](https://www.fastattackvehicle.com).
 - The icons for some units are adapted from<sup>2</sup> photographs taken by US Armed Forces members and are also government work products in the public domain, described below:
 
 | Unit | Photographer | Source | Notes |
