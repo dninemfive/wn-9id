@@ -11,6 +11,9 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     # - M67 90mm
     # - M67 90mm
     # - M67 90mm
-    with ctx.create_infantry_unit("RANGER AT SECTION", "US", "Ranger_US", [(M16A2, 10)]) as rangers_m67:
+    with ctx.create_infantry_unit("RANGER AT SECTION", "US",
+                                  "Ranger_US",
+                                  [(M16A2, 10)],
+                                  'img/units/ranger/at_section/icon.png') as rangers_m67:
         rangers_m67.modules.ui.UpgradeFromUnit = 'd9_RANGERS_M203_US'
         return rangers_m67

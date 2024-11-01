@@ -72,4 +72,5 @@ M203           = InfantryWeapon('$/GFX/Weapon/Ammo_d9_40mm_HEDP',
 M82            = InfantryWeapon('$/GFX/Weapon/Ammo_HMG_12_7_mm_M2HB',
                                  "'FireEffect_HMG_12_7_mm_M2HB'",
                                  '$/GFX/DepictionResources/Modele_M82_Barrett',
-                                 80)
+                                 80,
+                                 'mmg')
