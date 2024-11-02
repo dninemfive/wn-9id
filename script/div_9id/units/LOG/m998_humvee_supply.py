@@ -1,14 +1,14 @@
-from mw2.constants.ndf_paths import UNITE_DESCRIPTOR
-from mw2.context.mod_creation import ModCreationContext
-from mw2.context.unit_module import UnitModuleContext
-from mw2.creators.unit.basic import BasicUnitCreator
-from mw2.metadata.unit import UnitMetadata
-from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
-from mw2.wrappers.unit import UnitWrapper
+from warno_mfw.constants.ndf_paths import UNITE_DESCRIPTOR
+from warno_mfw.context.mod_creation import ModCreationContext
+from warno_mfw.context.unit_module import UnitModuleContext
+from warno_mfw.creators.unit.basic import BasicUnitCreator
+from warno_mfw.metadata.unit import UnitMetadata
+from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
+from warno_mfw.wrappers.unit import UnitWrapper
 from ndf_parse.model import List, Object
 
 from ._utils import m1038ify_m1025_gfx
-from mw2.constants import ndf_paths
+from warno_mfw.constants import ndf_paths
 
 MODULES_DESCRIPTORS = "ModulesDescriptors"
 

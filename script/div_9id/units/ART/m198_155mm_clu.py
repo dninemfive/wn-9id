@@ -1,9 +1,9 @@
-from mw2.context.mod_creation import ModCreationContext
-from mw2.context.unit_module import UnitModuleContext
-from mw2.metadata.unit import UnitMetadata
-from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
-import mw2.utils.ndf.ensure as ensure
-import mw2.utils.ndf.edit as edit
+from warno_mfw.context.mod_creation import ModCreationContext
+from warno_mfw.context.unit_module import UnitModuleContext
+from warno_mfw.metadata.unit import UnitMetadata
+from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
+import warno_mfw.utils.ndf.ensure as ensure
+import warno_mfw.utils.ndf.edit as edit
 
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:

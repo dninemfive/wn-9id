@@ -1,10 +1,10 @@
-import mw2.constants.ndf_paths as ndf_paths
-from mw2.context.mod_creation import ModCreationContext
-from mw2.context.unit_module import UnitModuleContext
-from mw2.creators.unit.abc import UnitCreator
-from mw2.creators.unit.basic import BasicUnitCreator
-from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
-from mw2.utils.ndf import ensure
+import warno_mfw.constants.ndf_paths as ndf_paths
+from warno_mfw.context.mod_creation import ModCreationContext
+from warno_mfw.context.unit_module import UnitModuleContext
+from warno_mfw.creators.unit.abc import UnitCreator
+from warno_mfw.creators.unit.basic import BasicUnitCreator
+from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
+from warno_mfw.utils.ndf import ensure
 from ndf_parse.model import List, ListRow, MemberRow, Object
 
 from ._utils import m1038ify_m1025_gfx

@@ -1,8 +1,8 @@
-from mw2.unit_registration.division_unit_registry import DivisionUnitRegistry
-from mw2.unit_registration.unit_group import UnitGroup
-from mw2.unit_registration.unit_registration_info import \
+from warno_mfw.unit_registration.division_unit_registry import DivisionUnitRegistry
+from warno_mfw.unit_registration.unit_group import UnitGroup
+from warno_mfw.unit_registration.unit_registration_info import \
     UnitRegistrationInfo as u
-from mw2.utils.types.message import Message
+from warno_mfw.utils.types.message import Message
 
 from .a6e_he        import create as intruder_he
 from .a6e_clu       import create as intruder_clu

@@ -1,8 +1,8 @@
-from mw2.constants.ndf_paths import AMMUNITION_MISSILES, MISSILE_CARRIAGE
-from mw2.context.mod_creation import ModCreationContext
-from mw2.creators.weapon import WeaponCreator
-from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
-from mw2.utils.ndf import edit, ensure
+from warno_mfw.constants.ndf_paths import AMMUNITION_MISSILES, MISSILE_CARRIAGE
+from warno_mfw.context.mod_creation import ModCreationContext
+from warno_mfw.creators.weapon import WeaponCreator
+from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
+from warno_mfw.utils.ndf import edit, ensure
 from ndf_parse.model import List, ListRow, Object
 
 

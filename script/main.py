@@ -7,17 +7,17 @@ import div_9id.ammo
 import div_9id.ammo.fgr_17_viper
 import div_9id.ammo.m60e3
 import div_9id.ammo.m203
-import mw2.constants.ndf_paths as ndf_paths
-import mw2.constants.paths as paths
+import warno_mfw.constants.ndf_paths as ndf_paths
+import warno_mfw.constants.paths as paths
 from div_9id.units import AA, AIR, ART, HEL, INF, LOG, REC, TNK, transports
-from mw2.context.mod_creation import ModCreationContext
-from mw2.metadata.division import DivisionMetadata
-from mw2.metadata.mod import ModMetadata
-from mw2.metadata.warno import WarnoMetadata
-from mw2.unit_registration.division_unit_registry import DivisionUnitRegistry
-from mw2.unit_registration.unit_group import UnitGroup
-from mw2.utils.bat import generate_mod, reset_source
-from mw2.utils.types.message import Message
+from warno_mfw.context.mod_creation import ModCreationContext
+from warno_mfw.metadata.division import DivisionMetadata
+from warno_mfw.metadata.mod import ModMetadata
+from warno_mfw.metadata.warno import WarnoMetadata
+from warno_mfw.unit_registration.division_unit_registry import DivisionUnitRegistry
+from warno_mfw.unit_registration.unit_group import UnitGroup
+from warno_mfw.utils.bat import generate_mod, reset_source
+from warno_mfw.utils.types.message import Message
 
 wn_metadata = WarnoMetadata(paths.WARNO_DIRECTORY)
 mod_metadata = ModMetadata('dninemfive', '9th Infantry Division (HTMD)', wn_metadata, "0.0.0", 'd9', 'd99ID')
