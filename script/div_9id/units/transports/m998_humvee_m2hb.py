@@ -1,7 +1,7 @@
-from mw2.context.mod_creation import ModCreationContext
-from mw2.creators.unit.basic import BasicUnitCreator
+from warno_mfw.context.mod_creation import ModCreationContext
+from warno_mfw.creators.unit.basic import BasicUnitCreator
 from ndf_parse.model import List, ListRow, MemberRow, Object
-from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
+from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
 
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
