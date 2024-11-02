@@ -1,7 +1,7 @@
-from mw2.context.mod_creation import ModCreationContext
+from warno_mfw.context.mod_creation import ModCreationContext
 from ndf_parse.model import List
 from ..infantry_weapons import M16A2
-from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
+from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
 
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:

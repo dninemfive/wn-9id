@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from warno_mod_framework.context.mod_creation import ModCreationContext
+from warno_mfw.context.mod_creation import ModCreationContext
 
 
 def create(ctx: ModCreationContext) -> str:

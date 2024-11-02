@@ -1,5 +1,5 @@
-from mw2.metadata.unit import UnitMetadata
-from mw2.utils.ndf import edit, ensure
+from warno_mfw.metadata.unit import UnitMetadata
+from warno_mfw.utils.ndf import edit, ensure
 from ndf_parse.model import List, ListRow, Object
 
 

@@ -1,7 +1,7 @@
-from mw2.unit_registration.division_unit_registry import DivisionUnitRegistry
-from mw2.unit_registration.unit_group import UnitGroup
-from mw2.unit_registration.unit_registration_info import UnitRegistrationInfo as u
-from mw2.utils.types.message import Message
+from warno_mfw.unit_registration.division_unit_registry import DivisionUnitRegistry
+from warno_mfw.unit_registration.unit_group import UnitGroup
+from warno_mfw.unit_registration.unit_registration_info import UnitRegistrationInfo as u
+from warno_mfw.utils.types.message import Message
 
 from .cmd_m997_tc3v import create as cmd_m997_tc3v_
 from .m998_humvee_supply import create as m998_humvee_supply_

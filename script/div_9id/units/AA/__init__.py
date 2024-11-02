@@ -1,9 +1,9 @@
 from div_9id.units.transports import BLACKHAWK, M35, M998_HUMVEE, Transports
-from mw2.unit_registration.division_unit_registry import DivisionUnitRegistry
-from mw2.unit_registration.unit_group import UnitGroup
-from mw2.unit_registration.unit_registration_info import \
+from warno_mfw.unit_registration.division_unit_registry import DivisionUnitRegistry
+from warno_mfw.unit_registration.unit_group import UnitGroup
+from warno_mfw.unit_registration.unit_registration_info import \
     UnitRegistrationInfo as u
-from mw2.utils.types.message import Message
+from warno_mfw.utils.types.message import Message
 
 from .joh58c             import create as joh58c_
 from .m167a2_pivads_20mm import create as m167a2

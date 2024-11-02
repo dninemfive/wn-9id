@@ -1,8 +1,8 @@
-from mw2.unit_registration.division_unit_registry import DivisionUnitRegistry
-from mw2.unit_registration.unit_group import UnitGroup
-from mw2.unit_registration.unit_registration_info import \
+from warno_mfw.unit_registration.division_unit_registry import DivisionUnitRegistry
+from warno_mfw.unit_registration.unit_group import UnitGroup
+from warno_mfw.unit_registration.unit_registration_info import \
     UnitRegistrationInfo as u
-from mw2.utils.types.message import Message
+from warno_mfw.utils.types.message import Message
 
 from .m966_humvee_tow   import create as m966_tow
 from .m998_humvee_glhl  import create as m998_glh

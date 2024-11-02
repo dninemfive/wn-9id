@@ -1,6 +1,6 @@
-from mw2.context.mod_creation import ModCreationContext
-from mw2.unit_registration.new_src_unit_pair import NewSrcUnitPair
-from mw2.utils.ndf import ensure
+from warno_mfw.context.mod_creation import ModCreationContext
+from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
+from warno_mfw.utils.ndf import ensure
 
 FLIGHT_ALTITUDE = 706 # = 3000 / 3.2 * METRE
                      # weird discrepancy: 706 for LowAltitudeFlyingAltitude, but 494 for Altitude

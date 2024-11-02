@@ -1,4 +1,4 @@
-from mw2.creators.unit.utils.infantry.weapon import InfantryWeapon
+from warno_mfw.creators.unit.utils.infantry.weapon import InfantryWeapon
 
 M16A2           = InfantryWeapon('$/GFX/Weapon/Ammo_FM_M16',
                                  "'FireEffect_FM_M16'",
