@@ -1,14 +1,13 @@
-from warno_mfw.constants.ndf_paths import UNITE_DESCRIPTOR
+from ndf_parse.model import List, Object
 from warno_mfw.context.mod_creation import ModCreationContext
 from warno_mfw.context.unit_module import UnitModuleContext
 from warno_mfw.creators.unit.basic import BasicUnitCreator
+from warno_mfw.hints.paths.GameData.Generated.Gameplay import Gfx as ndf_paths
 from warno_mfw.metadata.unit import UnitMetadata
 from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
 from warno_mfw.wrappers.unit import UnitWrapper
-from ndf_parse.model import List, Object
 
 from ._utils import m1038ify_m1025_gfx
-from warno_mfw.constants import ndf_paths
 
 MODULES_DESCRIPTORS = "ModulesDescriptors"
 
@@ -30,7 +29,7 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair | None:
         ctx.get_unit('M35_supply_US').modules.ui.UpgradeFromUnit = m998_humvee_supply
         m998_humvee_supply.modules.edit_members('ApparenceModel',
                                                 by_name=True,
-                                                Depiction=m1038ify_m1025_gfx(ctx.ndf[ndf_paths.GENERATED_DEPICTION_VEHICLES], m998_humvee_supply.new_unit))
+                                                Depiction=m1038ify_m1025_gfx(ctx.ndf[ndf_paths.Depictions.GeneratedDepictionVehicles], m998_humvee_supply.new_unit))
         return (m998_humvee_supply, ROVER)
 
 def edit_with_m1038(m998_humvee_supply: BasicUnitCreator, m1038_humvee: UnitWrapper) -> None:

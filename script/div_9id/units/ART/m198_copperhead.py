@@ -14,7 +14,7 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         ammo_name = 'Ammo_d9_Howz_Canon_155mm_Copperhead'
         with ctx.create_ammo(ammo_name, 'Ammo_Howz_Canon_M198_Howitzer_155mm') as ammo:
             ammo.edit_members(Name=ctx.localization.register('M712 Copperhead'),
-                              TraitsToken=ensure._list("'STAT'", "'cluster'", "'CLGP'"),
+                              TraitsToken=ensure.NdfList("'STAT'", "'cluster'", "'CLGP'"),
                               PorteeMaximaleGRU=17650, # ~ same ratio to the base M198 as the real-life M712 to its counterpart
                               DispersionAtMaxRangeGRU=177,
                               DispersionAtMinRangeGRU=177,

@@ -7,7 +7,6 @@ import div_9id.ammo
 import div_9id.ammo.fgr_17_viper
 import div_9id.ammo.m60e3
 import div_9id.ammo.m203
-import warno_mfw.constants.ndf_paths as ndf_paths
 from div_9id.units import AA, AIR, ART, HEL, INF, LOG, REC, TNK, transports
 from warno_mfw.context.mod_creation import ModCreationContext
 from warno_mfw.metadata.division import DivisionMetadata
@@ -25,7 +24,7 @@ div_metadata = DivisionMetadata('d9', '9ID', 'US', 1390)
 reset_source(mod_metadata, wn_metadata)
 
 with Message(f"Creating mod {mod_metadata.name} by {mod_metadata.author}") as root_msg:
-    with ModCreationContext(mod_metadata, root_msg, *ndf_paths.ALL) as mod_context:
+    with ModCreationContext(mod_metadata, root_msg) as mod_context:
             div_9id.ammo.fgr_17_viper.create(mod_context)
             div_9id.ammo.m60e3.create(mod_context)
             div_9id.ammo.m203.create(mod_context)

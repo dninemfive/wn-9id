@@ -13,8 +13,8 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         )
         iew_team.modules.production.command_point_cost=80
         # add traits: EW, GSR, direction finding?
-        iew_team.modules.append(ensure._object('TModuleSelector',
-            Default=ensure._object('TCapaciteModuleDescriptor',
+        iew_team.modules.append(ensure.NdfObject('TModuleSelector',
+            Default=ensure.NdfObject('TCapaciteModuleDescriptor',
                                    DefaultSkillList=[
                                        '$/GFX/EffectCapacity/Capacite_GSR',
                                        '$/GFX/EffectCapacity/Capacite_GSR_no_GSR',

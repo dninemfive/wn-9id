@@ -14,8 +14,8 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
         ammo_name = 'Ammo_d9_Howz_Canon_M198_155mm_Cluster'
         with ctx.create_ammo(ammo_name, 'Ammo_Howz_Canon_M198_Howitzer_155mm') as ammo:
             ammo.edit_members(Name=ctx.localization.register('M864 155mm'),
-                              TraitsToken=ensure._list("'STAT'", "'cluster'", "'IND'"),
-                              Arme=ensure._object('TDamageTypeRTTI', Family='DamageFamily_clu_sol_ap', Index=5),
+                              TraitsToken=ensure.NdfList("'STAT'", "'cluster'", "'IND'"),
+                              Arme=ensure.NdfObject('TDamageTypeRTTI', Family='DamageFamily_clu_sol_ap', Index=5),
                               ImpactHappening=["'MortierM240240MmCluster'"],
                               ForceHitTopArmor=True,
                               IsSubAmmunition=True,

@@ -3,13 +3,12 @@ from typing import Literal, Self
 
 import warno_mfw.utils.ndf.edit as edit
 import warno_mfw.utils.ndf.ensure as ensure
-from warno_mfw.constants import ndf_paths
 from warno_mfw.context.mod_creation import ModCreationContext
 from warno_mfw.context.unit_module import UnitModuleContext
 from warno_mfw.metadata.unit import NamePathPair, UnitMetadata
 from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
 from ndf_parse.model import List, ListRow, Object
-
+from warno_mfw.hints import PylonSet
 
 @dataclass
 class TMissileCarriageWeaponInfo(object):
@@ -19,25 +18,14 @@ class TMissileCarriageWeaponInfo(object):
     MountingType: Literal['eMountingDefault', 'eMountingMissile', 'eMountingPod', 'eMountingBomb'] = 'eMountingDefault'
 
     def to_ndf(self: Self) -> Object:
-        return ensure._object('TMissileCarriageWeaponInfo',
+        return ensure.NdfObject('TMissileCarriageWeaponInfo',
                               Count=self.Count,
                               MissileType=self.MissileType,
                               MountingType=self.MountingType,
                               WeaponIndex=self.WeaponIndex)
 
-PylonSetType = Literal['ATGM',
-                       'Airplane_Default',
-                       'Airplane_FR',
-                       'Airplane_RFA',
-                       'Airplane_SOV',
-                       'Airplane_UK',
-                       'Airplane_US',
-                       'Helico_Default',
-                       'Helico_SOV',
-                       'Vehicle_Default']
-
 class TMissileCarriageConnoisseur(object):
-    def __init__(self: Self, mesh_descriptor: str, pylon_set: PylonSetType, *weapon_infos: TMissileCarriageWeaponInfo):
+    def __init__(self: Self, mesh_descriptor: str, pylon_set: PylonSet, *weapon_infos: TMissileCarriageWeaponInfo):
         self.MeshDescriptor = mesh_descriptor
         self.PylonSet = ensure.prefix(pylon_set, '~/DepictionPylonSet_')
         self.WeaponInfos: list[TMissileCarriageWeaponInfo] = []
@@ -49,7 +37,7 @@ class TMissileCarriageConnoisseur(object):
         self.WeaponInfos = list(sorted(self.WeaponInfos, key=lambda x: x.WeaponIndex))
 
     def to_ndf(self: Self, showroom: bool = False) -> Object:
-        return ensure._object(
+        return ensure.NdfObject(
             'TMissileCarriageConnoisseur',
             MeshDescriptor=self.MeshDescriptor,
             PylonSet=f'{self.PylonSet}{'_Showroom' if showroom else ''}',
@@ -68,7 +56,7 @@ class TStaticMissileCarriageSubDepictionMissileInfo(object):
     WeaponIndex: int
 
     def to_ndf(self: Self) -> Object:
-        return ensure._object(
+        return ensure.NdfObject(
             'TStaticMissileCarriageSubDepictionGenerator',
             Depiction=self.Depiction,
             MissileCount=self.MissileCount,
@@ -76,13 +64,13 @@ class TStaticMissileCarriageSubDepictionMissileInfo(object):
         )
     
 class TStaticMissileCarriageSubDepictionGenerator(object):
-    def __init__(self: Self, reference_mesh: str, pylons: PylonSetType, *missiles: TStaticMissileCarriageSubDepictionMissileInfo):
+    def __init__(self: Self, reference_mesh: str, pylons: PylonSet, *missiles: TStaticMissileCarriageSubDepictionMissileInfo):
         self.ReferenceMesh = reference_mesh
         self.Pylons = ensure.prefix(pylons, '~/DepictionPylonSet_')
         self.Missiles = sorted(missiles, key=lambda x: x.WeaponIndex)
 
     def to_ndf(self: Self, unit: UnitMetadata, showroom: bool = False) -> Object:
-        return ensure._object(
+        return ensure.NdfObject(
             'TStaticMissileCarriageSubDepictionGenerator',
             MissileCarriageConnosseur=unit.missile_carriage.showroom_if(showroom).path,
             Missiles=[x.to_ndf() for x in self.Missiles],

@@ -1,41 +1,40 @@
-from warno_mfw.constants import ndf_paths
-from warno_mfw.creators.unit.abc import UnitCreator
-from warno_mfw.metadata.unit import UnitMetadata
-from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
-import warno_mfw.utils.ndf.ensure as ensure
+from ndf_parse.model import List, ListRow, Object
 from warno_mfw.context.mod_creation import ModCreationContext
 from warno_mfw.context.unit_module import UnitModuleContext
-from ndf_parse.model import List, ListRow, Object
-import warno_mfw.utils.ndf.edit as edit
+from warno_mfw.creators.unit.abc import UnitCreator
+from warno_mfw.hints.paths.GameData.Generated.Gameplay import Gfx as ndf_paths
+from warno_mfw.metadata.unit import UnitMetadata
+from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
+from warno_mfw.utils.ndf import edit, ensure
 
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     with ctx.create_unit("AH-64A APACHE [SEAD]", "US", "AH64_Apache_US") as apache_sead:
         # upgrade from Apache ATAS or whatever is at the end of the apache upgrades list
         apache_sead.modules.ui.UpgradeFromUnit = 'AH64_Apache_emp1_US'
-        add_weapon_descriptor(ctx.ndf[ndf_paths.WEAPON_DESCRIPTOR], apache_sead)
+        add_weapon_descriptor(ctx.ndf[ndf_paths.WeaponDescriptor], apache_sead)
         # new MissileCarriage
         # same one for both in-game and showroom
         apache_sead.unit.modules.edit_members(
             'MissileCarriage',
             True,
-            Connoisseur=add_missile_carriage(ctx.ndf[ndf_paths.MISSILE_CARRIAGE],
+            Connoisseur=add_missile_carriage(ctx.ndf[ndf_paths.MissileCarriage],
                                              apache_sead))
         subgenerators_name, subgenerators_showroom_name = 'SubGenerators_d9_AH64A_APACHE_SEAD_US', 'SubGenerators_Showroom_d9_AH64A_APACHE_SEAD_US'
-        gfx_autogen_showroom = ctx.ndf[ndf_paths.GENERATED_DEPICTION_AERIAL_UNITS_SHOWROOM].by_name('Gfx_AH64_Apache_US_Showroom_Autogen').value.copy()
+        gfx_autogen_showroom = ctx.ndf[ndf_paths.Depictions.GeneratedDepictionAerialUnitsShowroom].by_name('Gfx_AH64_Apache_US_Showroom_Autogen').value.copy()
         edit.members(gfx_autogen_showroom, SubDepictionGenerators=[subgenerators_showroom_name])
-        ctx.ndf[ndf_paths.GENERATED_DEPICTION_AERIAL_UNITS_SHOWROOM].add(ListRow(gfx_autogen_showroom, namespace='Gfx_d9_AH64A_APACHE_SEAD_US_Showroom_Autogen'))
+        ctx.ndf[ndf_paths.Depictions.GeneratedDepictionAerialUnitsShowroom].add(ListRow(gfx_autogen_showroom, namespace='Gfx_d9_AH64A_APACHE_SEAD_US_Showroom_Autogen'))
         showroom_unit = ctx.get_unit('AH64_Apache_US', showroom=True).copy()
         showroom_unit.modules.edit_members('TApparenceModelModuleDescriptor',
                                            Depiction=...)
         # new missilecarriagedepiction
-        missile_carriage_depiction = ensure._object(
+        missile_carriage_depiction = ensure.NdfObject(
             'TStaticMissileCarriageSubDepictionGenerator',
             MissileCarriageConnoisseur='MissileCarriage_d9_AH64A_APACHE_SEAD_US',
             Missiles=[
-                ensure._object(
+                ensure.NdfObject(
                     'TStaticMissileCarriageSubDepictionMissileInfo',
-                    Depiction=ensure._object(
+                    Depiction=ensure.NdfObject(
                         'TemplateDepictionStaticMissilesGroundUnit',
                         PhysicalProperty=ensure.quoted('Tourelle3_MissileCount'),
                         ProjectileModelResource='$/GFX/DepictionResources/Modele_Missile_AGM_122_Sidearm' # oh hey would you look at that
@@ -69,16 +68,16 @@ def add_weapon_descriptor(ndf: List, creator: UnitCreator) -> None:
     creator.modules.edit_members('WeaponManager', True, Default=creator.new_unit.weapon_descriptor.path)
 
 def add_missile_carriage(ndf: List, creator: UnitCreator, showroom: bool = False) -> str:
-    missile_carriage = ensure._object(
+    missile_carriage = ensure.NdfObject(
         'TMissileCarriageConnoisseur',
         MeshDescriptor='$/GFX/DepictionResources/Modele_AH64_Apache_ATAS_US',
         PylonSet=f'~/DepictionPylonSet_Helico_Default{'_Showroom' if showroom else ''}',
         WeaponInfos=[
-            ensure._object('TMissileCarriageWeaponInfo',
+            ensure.NdfObject('TMissileCarriageWeaponInfo',
                             Count=2,
                             MissileType='eAGM',
                             WeaponIndex=2),
-            ensure._object('TMissileCarriageWeaponInfo',
+            ensure.NdfObject('TMissileCarriageWeaponInfo',
                             Count=8,
                             MissileType='eAGM',
                             WeaponIndex=3)                               

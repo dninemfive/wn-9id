@@ -12,7 +12,7 @@ def create(ctx: ModCreationContext) -> str:
                              AffichageMunitionParSalve=1)
         creator.object.by_member('HitRollRuleDescriptor').value\
                       .by_member('BaseHitValueModifiers').value\
-                            = ensure._list(('EBaseHitValueModifier/Base', 0),
+                            = ensure.NdfList(('EBaseHitValueModifier/Base', 0),
                                            ('EBaseHitValueModifier/Idling', 45),
                                            ('EBaseHitValueModifier/Moving', 0),
                                            ('EBaseHitValueModifier/Targeted', 0))

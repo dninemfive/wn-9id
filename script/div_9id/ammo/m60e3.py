@@ -9,7 +9,7 @@ def create(ctx: ModCreationContext) -> str:
                              PorteeMinimaleGRU=None)
         creator.object.by_member('HitRollRuleDescriptor').value\
                       .by_member('BaseHitValueModifiers').value\
-                            = ensure._list(('EBaseHitValueModifier/Base', 0),
+                            = ensure.NdfList(('EBaseHitValueModifier/Base', 0),
                                            ('EBaseHitValueModifier/Idling', 35),
                                            ('EBaseHitValueModifier/Moving', 10),
                                            ('EBaseHitValueModifier/Targeted', 0))

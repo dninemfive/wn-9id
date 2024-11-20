@@ -1,9 +1,9 @@
-from warno_mfw.constants.ndf_paths import AMMUNITION_MISSILES, MISSILE_CARRIAGE
+from ndf_parse.model import List, ListRow, Object
 from warno_mfw.context.mod_creation import ModCreationContext
 from warno_mfw.creators.weapon import WeaponCreator
+from warno_mfw.hints.paths.GameData.Generated import Gfx as ndf_paths
 from warno_mfw.unit_registration.new_src_unit_pair import NewSrcUnitPair
 from warno_mfw.utils.ndf import edit, ensure
-from ndf_parse.model import List, ListRow, Object
 
 
 def create(ctx: ModCreationContext) -> NewSrcUnitPair:
@@ -13,7 +13,7 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     with ctx.create_unit("#RECO3 JOH-58D KIOWA", "US", "OH58D_Combat_Scout_US") as joh58d_kiowa:
         with joh58d_kiowa.edit_weapons() as weapons:
             edit_weapons(weapons)
-        joh58d_kiowa.modules.get('MissileCarriage', by_name=True).by_member('Connoisseur').value = generate_missile_carriages(ctx.ndf[MISSILE_CARRIAGE])
+        joh58d_kiowa.modules.get('MissileCarriage', by_name=True).by_member('Connoisseur').value = generate_missile_carriages(ctx.ndf[ndf_paths.MissileCarriage])
         # insert after Kiowa and before Kiowa WR
         joh58d_kiowa.modules.ui.edit_members(UpgradeFromUnit='Descriptor_Unit_OH58D_Combat_Scout_US')
         ctx.get_unit('OH58D_Kiowa_Warrior_US').modules.ui.UpgradeFromUnit = joh58d_kiowa
@@ -21,7 +21,7 @@ def create(ctx: ModCreationContext) -> NewSrcUnitPair:
     
 def generate_ammo_descriptor(ctx: ModCreationContext) -> str:
     ammo_name = 'Ammo_AGM_BGM71D_TOW_2A_x4'
-    copy: Object = ctx.ndf[AMMUNITION_MISSILES].by_name('Ammo_ATGM_BGM71D_TOW_2A_x2').value.copy()
+    copy: Object = ctx.ndf[ndf_paths.AmmunitionMissiles].by_name('Ammo_ATGM_BGM71D_TOW_2A_x2').value.copy()
     copy.by_member('DescriptorId').value = ctx.guids.generate(ammo_name)
     
 def edit_weapons(weapons: WeaponCreator) -> str:
@@ -56,12 +56,12 @@ def generate_missile_carriages(missile_carriage_ndf: List) -> str:
     copy: Object = missile_carriage_ndf.by_name('MissileCarriage_OH58D_Combat_Scout_US').value.copy()
     edit.members(copy,
                  WeaponInfos=[
-                    ensure._object('TMissileCarriageWeaponInfo', 
+                    ensure.NdfObject('TMissileCarriageWeaponInfo', 
                                 Count=4,
                                 MissileType='eAGM',
                                 MountingType='eMountingPod',
                                 WeaponIndex='0'),
-                    ensure._object('TMissileCarriageWeaponInfo', 
+                    ensure.NdfObject('TMissileCarriageWeaponInfo', 
                                 Count=19,
                                 MissileType='eAGM',
                                 MountingType='eMountingPod',
