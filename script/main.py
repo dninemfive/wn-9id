@@ -14,14 +14,14 @@ from warno_mfw.metadata.mod import ModMetadata
 from warno_mfw.metadata.warno import WarnoMetadata
 from warno_mfw.unit_registration.division_unit_registry import DivisionUnitRegistry
 from warno_mfw.unit_registration.unit_group import UnitGroup
-from warno_mfw.utils.bat import generate_mod, reset_source
+from warno_mfw.utils.bat import generate_mod, reset_source_for
 from warno_mfw.utils.types.message import Message
 
 wn_metadata = WarnoMetadata(rf"C:\Program Files (x86)\Steam\steamapps\common\WARNO")
 mod_metadata = ModMetadata('dninemfive', '9th Infantry Division (HTMD)', wn_metadata, "0.0.0", 'd9', 'd99ID')
 div_metadata = DivisionMetadata('d9', '9ID', 'US', 1390)
 
-reset_source(mod_metadata, wn_metadata)
+reset_source_for(mod_metadata)
 
 with Message(f"Creating mod {mod_metadata.name} by {mod_metadata.author}") as root_msg:
     with ModCreationContext(mod_metadata, root_msg) as mod_context:
